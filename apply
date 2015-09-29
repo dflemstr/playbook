@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ $EUID -ne 0 ]
+then
+    echo >&2 "$0: must be run as root"
+    exit 1
+fi
+
+exec ansible-playbook -i localhost, setup.yaml

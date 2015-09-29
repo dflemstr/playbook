@@ -1,0 +1,17 @@
+---
+# Requires variable group_name to be set
+
+- name: Pacman group | {{ group_name }} | enumerate packages
+  command: pacman -Sgq {{ group_name | mandatory }}
+  register: group_info
+  changed_when: false
+
+- name: Pacman group | {{ group_name }} | enumerate installed packages
+  command: pacman -Qgq {{ group_name }}
+  register: group_installed_info
+  changed_when: false
+
+- name: Pacman group | {{ group_name }} | install packages
+  pacman: name={{ item }} state=present
+  with_items: "group_info.stdout_lines | difference(except | default([]))"
+  when: "group_info.stdout_lines | difference(group_installed_info.stdout_lines) | difference(except | default([])) | length > 0"

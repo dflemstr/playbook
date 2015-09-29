@@ -1,0 +1,31 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    ansible_python_interpreter: /usr/bin/python2
+    me: dflemstr
+    my_name: David Flemström
+  tasks:
+    - name: Get list of installed packages
+      command: pacman -Qq
+      register: pacman_query_output
+      changed_when: false
+
+    - name: Store list of installed packages
+      set_fact:
+        installed_packages: "{{ pacman_query_output.stdout_lines }}"
+
+    - include: task/pacman.yaml
+    - include: task/network.yaml
+    - include: task/ssh.yaml
+    - include: task/users.yaml
+    - include: task/zsh.yaml
+    - include: task/aur.yaml
+    - include: task/sudo.yaml
+    - include: task/fonts.yaml
+    - include: task/xorg.yaml
+    - include: task/gnome.yaml
+    - include: task/docker.yaml
+    - include: task/vpn.yaml
+    - include: task/packages.yaml
+    - include: task/emacs.yaml

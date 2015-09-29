@@ -1,0 +1,21 @@
+---
+- name: Install emacs
+  pacman: name=emacs state=present
+
+- name: Set up emacs prelude
+  sudo: yes
+  sudo_user: "{{ me }}"
+  git:
+    repo: git@github.com:dflemstr/prelude.git
+    version: personal
+    dest: "~{{ me }}/github.com/dflemstr/prelude"
+    accept_hostkey: yes
+    update: yes
+
+- name: Symlink emacs prelude directory
+  file:
+    src: "~{{ me }}/github.com/dflemstr/prelude"
+    dest: "~{{ me }}/.emacs.d"
+    state: link
+    owner: "{{ me }}"
+    group: users

@@ -1,0 +1,6 @@
+---
+- name: Install xorg
+  include: pacman-group.yaml group_name=xorg
+
+- name: Install mesa demos
+  pacman: name=mesa-demos state=present

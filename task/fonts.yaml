@@ -1,0 +1,12 @@
+---
+- name: Install infinality bundle
+  pacman: name={{ item }} state=present
+  with_items:
+    - cairo-infinality-ultimate
+    - fontconfig-infinality-ultimate
+    - freetype2-infinality-ultimate
+    - lib32-cairo-infinality-ultimate
+    - lib32-fontconfig-infinality-ultimate
+    - lib32-freetype2-infinality-ultimate
+    - ibfonts-meta-base
+    - ibfonts-meta-extended

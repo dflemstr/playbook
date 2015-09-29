@@ -1,0 +1,6 @@
+---
+- name: Install NetworkManager
+  pacman: name=networkmanager state=present
+
+- name: Start NetworkManager
+  service: name=NetworkManager state=started enabled=yes

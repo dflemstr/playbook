@@ -1,0 +1,6 @@
+---
+- name: Install docker
+  pacman: name=docker state=present
+
+- name: Enable docker socket
+  service: name=docker.socket state=started enabled=yes

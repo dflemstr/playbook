@@ -1,0 +1,18 @@
+---
+- name: Install base-devel
+  include: pacman-group.yaml
+  vars:
+    group_name: base-devel
+    except:
+      - gcc
+
+- name: Configure makepkg
+  template: src=file/makepkg.conf dest=/etc/makepkg.conf
+
+- name: Install cower
+  include: aur-bootstrap.yaml pkg_name=cower
+  when: "'cower' not in installed_packages"
+
+- name: Install pacaur
+  include: aur-bootstrap.yaml pkg_name=pacaur
+  when: "'pacaur' not in installed_packages"

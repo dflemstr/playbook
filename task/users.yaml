@@ -1,0 +1,11 @@
+---
+- name: "Create my user"
+  user:
+    name: "{{ me }}"
+    comment: "{{ my_name }}"
+    shell: /bin/zsh
+    group: users
+    groups: wheel,docker
+    generate_ssh_key: yes
+    ssh_key_bits: 4092
+    ssh_key_comment: "{{ me }}@{{ ansible_hostname }}"

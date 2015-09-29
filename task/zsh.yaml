@@ -1,0 +1,31 @@
+---
+- name: Install zsh
+  pacman: name=zsh state=present
+
+- name: Set shell for root to zsh
+  user: name=root shell=/bin/zsh
+
+- name: Install oh-my-zsh
+  sudo: yes
+  sudo_user: "{{ me }}"
+  git:
+    repo: git@github.com:robbyrussell/oh-my-zsh.git
+    version: master
+    dest: "~{{ me }}/github.com/robbyrussell/oh-my-zsh"
+    accept_hostkey: yes
+    update: yes
+
+- name: Symlink oh-my-zsh directory
+  file:
+    src: "~{{ me }}/github.com/robbyrussell/oh-my-zsh"
+    dest: "~{{ me }}/.zsh"
+    state: link
+    owner: "{{ me }}"
+    group: users
+
+- name: Enable zsh configuration
+  template:
+    src: file/zshrc
+    dest: "~{{ me }}/.zshrc"
+    owner: "{{ me }}"
+    group: users

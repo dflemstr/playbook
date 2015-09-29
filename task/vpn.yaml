@@ -1,0 +1,8 @@
+---
+- name: Install vpnc VPN plugin
+  pacman: name=networkmanager-vpnc state=present
+
+- name: Install patched vpnc
+  sudo: yes
+  sudo_user: "{{ me }}"
+  pacaur: name=vpnc-fortigate state=present

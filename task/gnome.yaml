@@ -1,0 +1,10 @@
+---
+- name: Install gnome
+  include: pacman-group.yaml group_name=gnome
+
+- name: Install gnome-extra
+  include: pacman-group.yaml
+  vars:
+    group_name: gnome-extra
+    except:
+      - anjuta

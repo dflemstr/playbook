@@ -1,0 +1,7 @@
+---
+- name: Configure pacman
+  template: src=file/pacman.conf dest=/etc/pacman.conf
+
+- name: Download package lists
+  pacman: update_cache=yes
+  changed_when: false

@@ -1,0 +1,13 @@
+---
+- name: Install JDK
+  sudo: yes
+  sudo_user: "{{ me }}"
+  pacaur: name=jdk state=present
+
+- name: Install maven
+  pacman: name=maven state=present
+
+- name: Install IntelliJ IDEA Ultimate
+  sudo: yes
+  sudo_user: "{{ me }}"
+  pacaur: name=intellij-idea-ultimate-edition state=present
