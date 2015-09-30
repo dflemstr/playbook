@@ -9,6 +9,36 @@
 - name: Configure makepkg
   template: src=file/makepkg.conf dest=/etc/makepkg.conf
 
+- name: Create AUR workspace
+  file:
+    path: "~{{ me }}/aur/{{ item }}"
+    state: directory
+    owner: "{{ me }}"
+    group: users
+  with_items:
+    - build
+    - package
+    - pkgbuild
+    - source
+    - sourcepackage
+    - log
+
+- name: Configure pacaur
+  template:
+    src: file/pacaur-config
+    dest: "~{{ me }}/.config/pacaur/config"
+    owner: "{{ me }}"
+    group: users
+
+- name: Get list of installed packages
+  command: pacman -Qq
+  register: pacman_query_output
+  changed_when: false
+
+- name: Store list of installed packages
+  set_fact:
+    installed_packages: "{{ pacman_query_output.stdout_lines }}"
+
 - name: Install cower
   include: aur-bootstrap.yaml pkg_name=cower
   when: "'cower' not in installed_packages"

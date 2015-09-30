@@ -1,0 +1,3 @@
+builddir=$HOME/aur/pkgbuild
+clean=false
+

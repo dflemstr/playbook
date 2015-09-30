@@ -16,7 +16,7 @@ def install_packages(module, package_name):
             msg='package already installed',
         )
 
-    cmd = ['pacaur', '--noconfirm', '-Sa', package_name]
+    cmd = ['pacaur', '--noconfirm', '--noedit', '-Sa', package_name]
     module.run_command(cmd, check_rc=True)
 
     module.exit_json(

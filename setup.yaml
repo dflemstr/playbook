@@ -6,15 +6,6 @@
     me: dflemstr
     my_name: David Flemström
   tasks:
-    - name: Get list of installed packages
-      command: pacman -Qq
-      register: pacman_query_output
-      changed_when: false
-
-    - name: Store list of installed packages
-      set_fact:
-        installed_packages: "{{ pacman_query_output.stdout_lines }}"
-
     - include: task/pacman.yaml
     - include: task/network.yaml
     - include: task/ssh.yaml
