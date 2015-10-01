@@ -23,6 +23,13 @@
     - sourcepackage
     - log
 
+- name: Create pacaur directory
+  file:
+    path: "~{{ me }}/.config/pacaur"
+    state: directory
+    owner: "{{ me }}"
+    group: users
+
 - name: Configure pacaur
   template:
     src: file/pacaur-config
