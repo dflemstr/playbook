@@ -33,5 +33,7 @@
     - google-chrome
     - multirust
     - ruby-travis
+    - rust-racer-git
+    - rust-src
     - shellcheck
     - ttf-fantasque-sans
