@@ -17,6 +17,7 @@
     - include: task/xorg.yaml
     - include: task/gnome.yaml
     - include: task/docker.yaml
+    - include: task/helios.yaml
     - include: task/vpn.yaml
     - include: task/packages.yaml
     - include: task/emacs.yaml

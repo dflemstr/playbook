@@ -1,0 +1,12 @@
+---
+- name: Install Helios
+  sudo: yes
+  sudo_user: "{{ me }}"
+  pacaur: name=helios-git state=present
+
+- name: Start Helios master
+  service: name=helios-master.service state=started enabled=yes
+
+- name: Start Helios agent
+  service: name=helios-agent.service state=started enabled=yes
+
