@@ -30,6 +30,7 @@
   sudo_user: "{{ me }}"
   pacaur: name={{ item }} state=present
   with_items:
+    - cargo-edit-git
     - google-chrome
     - multirust
     - ruby-travis
