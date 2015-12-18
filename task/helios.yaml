@@ -7,7 +7,7 @@
 - name: Install Helios Solo
   sudo: yes
   sudo_user: "{{ me }}"
-  pacaur: name=helios-solo-git state=present
+  pacaur: name=helios-solo state=present
 
 - name: Start Helios Solo
   service: name=helios-solo.service state=started enabled=yes
