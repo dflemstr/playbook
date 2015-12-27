@@ -10,6 +10,7 @@
     - include: task/network.yaml
     - include: task/ssh.yaml
     - include: task/users.yaml
+    - include: task/git.yaml
     - include: task/zsh.yaml
     - include: task/aur.yaml
     - include: task/sudo.yaml

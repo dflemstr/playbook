@@ -1,0 +1,14 @@
+---
+- name: Configure Git
+  template:
+    src: file/gitconfig
+    dest: "~{{ me }}/.gitconfig"
+    owner: "{{ me }}"
+    group: users
+
+- name: Configure global gitignore
+  template:
+    src: file/gitignore-global
+    dest: "~{{ me }}/.gitignore-global"
+    owner: "{{ me }}"
+    group: users

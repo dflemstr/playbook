@@ -1,0 +1,8 @@
+[user]
+        email = dflemstr@spotify.com
+        name = David Flemström
+[push]
+        default = simple
+[core]
+        excludesfile = /home/dflemstr/.gitignore-global
+
