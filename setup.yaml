@@ -17,6 +17,7 @@
     - include: task/fonts.yaml
     - include: task/xorg.yaml
     - include: task/gnome.yaml
+    - include: task/enpass.yaml
     - include: task/docker.yaml
     - include: task/helios.yaml
     - include: task/vpn.yaml

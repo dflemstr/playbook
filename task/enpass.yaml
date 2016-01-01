@@ -1,0 +1,9 @@
+---
+- name: Fix broken libappindicator-gtk2
+  template: src=file/libdbusmenu-glib.la dest=/usr/lib/libdbusmenu-glib.la
+
+- name: Install enpass
+  sudo: yes
+  sudo_user: "{{ me }}"
+  pacaur: name=enpass-bin state=present
+
