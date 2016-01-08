@@ -1,3 +1,3 @@
-builddir=$HOME/aur/pkgbuild
+clonedir=$HOME/aur/pkgbuild
 clean=false
 
