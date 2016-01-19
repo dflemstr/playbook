@@ -88,3 +88,4 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/bin:$PATH"
 export HELIOS_TESTING_PROFILE=local
 export RUST_SRC_PATH=/usr/src/rust/src
+export EDITOR=emacs
